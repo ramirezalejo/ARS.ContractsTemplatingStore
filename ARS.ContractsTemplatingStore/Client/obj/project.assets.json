@@ -1782,46 +1782,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alejandro.Severiche\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ramir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj",
+      "projectUniqueName": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj",
       "projectName": "ARS.ContractsTemplatingStore.Client",
-      "projectPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj",
-      "packagesPath": "C:\\Users\\Alejandro.Severiche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\obj\\",
+      "projectPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj",
+      "packagesPath": "C:\\Users\\ramir\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Alejandro.Severiche\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ramir\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://trader-dhub.pkgs.visualstudio.com/_packaging/Trader.Aggregate/nuget/v3/index.json": {},
-        "https://trader-dhub.pkgs.visualstudio.com/_packaging/Trader.Prerelease/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj": {
-              "projectPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj"
+            "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj": {
+              "projectPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj"
             }
           }
         }
@@ -1871,7 +1857,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.4, 6.0.4]"
+            "version": "[6.0.5, 6.0.5]"
           }
         ],
         "frameworkReferences": {
@@ -1879,7 +1865,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

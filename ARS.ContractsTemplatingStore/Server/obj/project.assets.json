@@ -988,6 +988,33 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Npgsql/6.0.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {}
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.4",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.4",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.4",
+          "Npgsql": "6.0.4"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -2899,6 +2926,43 @@
         "packageIcon.png"
       ]
     },
+    "Npgsql/6.0.4": {
+      "sha512": "SJMlOmFHr32oOzVXeHmarGaBKkhi0wHVN/rzuu2tUSJ4Qx2AkHCpr9R/DhLWwDiklqgzFU++9wkFyGJxbx/zzg==",
+      "type": "package",
+      "path": "npgsql/6.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.6.0.4.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.4": {
+      "sha512": "fzgRmBd3nAFvKt/L70sJfFWAdobtwDEeOzOzruJq9og97O8/5B96inQOAgOpYyaUjPYpS4ZS5/bxm3vnOJ0+pQ==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/6.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "npgsql.entityframeworkcore.postgresql.6.0.4.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.Collections.Immutable/6.0.0": {
       "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "type": "package",
@@ -3566,53 +3630,40 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.4",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.4",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.4"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.4",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alejandro.Severiche\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ramir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\ARS.ContractsTemplatingStore.Server.csproj",
+      "projectUniqueName": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\ARS.ContractsTemplatingStore.Server.csproj",
       "projectName": "ARS.ContractsTemplatingStore.Server",
-      "projectPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\ARS.ContractsTemplatingStore.Server.csproj",
-      "packagesPath": "C:\\Users\\Alejandro.Severiche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\obj\\",
+      "projectPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\ARS.ContractsTemplatingStore.Server.csproj",
+      "packagesPath": "C:\\Users\\ramir\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Server\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Alejandro.Severiche\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ramir\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://trader-dhub.pkgs.visualstudio.com/_packaging/Trader.Aggregate/nuget/v3/index.json": {},
-        "https://trader-dhub.pkgs.visualstudio.com/_packaging/Trader.Prerelease/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj": {
-              "projectPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj"
+            "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj": {
+              "projectPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Client\\ARS.ContractsTemplatingStore.Client.csproj"
             },
-            "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj": {
-              "projectPath": "C:\\Users\\Alejandro.Severiche\\Documents\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj"
+            "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj": {
+              "projectPath": "C:\\Users\\ramir\\repos\\ARS.ContractsTemplatingStore\\ARS.ContractsTemplatingStore\\Shared\\ARS.ContractsTemplatingStore.Shared.csproj"
             }
           }
         }
@@ -3654,6 +3705,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
             "version": "[6.0.4, )"
+          },
+          "Npgsql.EntityFrameworkCore.PostgreSQL": {
+            "target": "Package",
+            "version": "[6.0.4, )"
           }
         },
         "imports": [
@@ -3674,7 +3729,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

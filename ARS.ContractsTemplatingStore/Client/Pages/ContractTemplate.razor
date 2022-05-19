@@ -1,0 +1,142 @@
+@page "/ContractTemplate"
+@using ARS.ContractsTemplatingStore.Shared.Utils
+@using ARS.ContractsTemplatingStore.Shared.Models
+@inject HttpClient Http
+<h3>ContractTemplate</h3>
+
+<h1>Compress and Upload Files</h1>
+
+<div class="input-group">
+	<div class="custom-file">
+		<InputFile class="custom-file-input" multiple OnChange="OnChange" id="inputFile" />
+		<label class="custom-file-label" for="inputFile">Choose and compress file(s) for upload</label>
+	</div>
+	<div class="input-group-append">
+		<button class="btn btn-success" @onclick="Upload" disabled="@isDisabled">Upload</button>
+	</div>
+</div>
+
+<div class="container-fluid my-3">
+	<h5>@message</h5>
+</div>
+
+<ul class="list-group">
+@foreach (var file in files)
+{
+    <li class="list-group-item">@file.FileName
+	@if ((file.State & 4) != 0 | (file.State & 2) != 0)
+	{
+		if ((file.State & 4) != 0)
+		{
+		<span class="text-success mx-1">(&#9989; stored @System.Text.Encoding.UTF8.GetBytes(System.Text.Json.JsonSerializer.Serialize(file.Base64data)).Length bytes)</span>
+		}
+		if ((file.State & 2) != 0)
+		{
+		<span class="text-success mx-1">(&#9989; compressed original=@file.OriginalSize, compressed=@file.CompressedSize)</span>
+		}
+	}
+	else if ((file.State & 1) != 0)
+	{
+        <div class="spinner-grow spinner-grow-sm text-warning mx-1" role="status">
+            <span class="sr-only">processing...</span>
+        </div>
+	}
+    else
+	{
+		<span class="text-primary mx-1">&#8987; waiting...</span>
+	}
+    </li>
+}
+</ul>
+
+
+@code {
+    List<FileObject> files = new List<FileObject>();
+	bool isDisabled = true, selectFilesOk = true;
+	string message;
+
+	async Task OnChange(InputFileChangeEventArgs e)
+	{
+		message = string.Empty;
+
+		if (!selectFilesOk)
+			return;
+
+		selectFilesOk = false;
+		IReadOnlyList<IBrowserFile> bfiles = default(IReadOnlyList<IBrowserFile>);
+		int index = -1;
+
+		try
+		{
+
+			bfiles = e.GetMultipleFiles(); // get the files selected by the user
+			for (index = 0; index < bfiles.Count; index++)
+			{
+				var f = new FileObject { Buffer = new byte[bfiles[index].Size], ContentType = bfiles[index].ContentType, FileName = bfiles[index].Name };
+				using (var stream = bfiles[index].OpenReadStream())
+				{
+					await stream.ReadAsync(f.Buffer);
+				}
+				files.Add(f);
+			}
+
+			index = -1;
+			StateHasChanged();
+			var tasks = new List<Task>(); // create a list of tasks
+
+			foreach (var file in files)
+			{
+				if (file.State == 0)
+				{
+					Task task = Task.Run(async () =>
+					{
+						file.State |= 1; // let the app know this file has begun processing
+						file.OriginalSize = file.Buffer.Length;
+						StateHasChanged();
+
+						if (file.IsOkToCompress()) // only compress files that will benefit from it
+						{
+							file.Buffer = await Compressor.CompressAsync(file.Buffer); // compress the file buffer
+							file.CompressedSize = file.Buffer.Length;
+							file.State |= 2;
+							StateHasChanged();
+						}
+
+						file.Base64data = Convert.ToBase64String(file.Buffer); // convert the compressed data to a base64 string
+						file.State |= 4; // let the app know this file has been stored
+						StateHasChanged();
+					});
+					tasks.Add(task); // add task to the list
+				}
+			}
+
+			await Task.WhenAll(tasks); // wait for the tasks to finish
+
+		}
+		catch (Exception ex)
+		{
+
+			message = ex.Message;
+			if (index > -1) // could've just used another try block inside the above try block!
+				message += " (" + bfiles[index].Name + ")";
+
+		}
+
+		isDisabled = false; // enable the upload button
+		selectFilesOk = true; // allow adding more files
+	}
+
+	async Task Upload()
+	{
+		isDisabled = true;
+		using (var msg = await Http.PostAsJsonAsync<List<FileObject>>("/api/Upload", files, default))
+		{
+			isDisabled = false;
+			if (msg.IsSuccessStatusCode)
+			{
+				message = $"{files.Count} files uploaded";
+				files.Clear();
+			}
+		}
+	}
+}

@@ -1,5 +1,6 @@
 using ARS.ContractsTemplatingStore.Server.Data;
 using ARS.ContractsTemplatingStore.Server.Models;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var blobConnectionString = builder.Configuration.GetConnectionString("BlobConnectionString");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -20,6 +22,8 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.AddSingleton(new BlobServiceClient(blobConnectionString));
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
